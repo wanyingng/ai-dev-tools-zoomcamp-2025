@@ -1,0 +1,28 @@
+{% extends 'todos/base.html' %}
+
+{% block content %}
+<div class="card" style="max-width: 500px; margin: 2rem auto; text-align: center;">
+    <div style="color: var(--danger); margin-bottom: 1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+            <line x1="12" y1="9" x2="12" y2="13"></line>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+        </svg>
+    </div>
+
+    <h2 style="margin-top: 0;">Delete Task?</h2>
+    <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+        Are you sure you want to delete "<strong>{{ object.title }}</strong>"?<br>
+        This action cannot be undone.
+    </p>
+
+    <form method="post">
+        {% csrf_token %}
+        <div style="display: flex; justify-content: center; gap: 1rem;">
+            <a href="{% url 'todo-list' %}" class="btn btn-secondary">Cancel</a>
+            <button type="submit" class="btn btn-danger">Yes, Delete It</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

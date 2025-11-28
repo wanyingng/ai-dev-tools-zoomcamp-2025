@@ -1,0 +1,82 @@
+{% extends 'todos/base.html' %}
+
+{% block content %}
+<div class="card" style="max-width: 600px; margin: 0 auto;">
+    <h2 style="margin-top: 0; margin-bottom: 1.5rem;">{% if object %}Edit Task{% else %}New Task{% endif %}</h2>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="{{ form.title.id_for_label }}">Title</label>
+            {{ form.title }}
+            {% if form.title.errors %}
+            <div class="error-msg">{{ form.title.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.description.id_for_label }}">Description</label>
+            {{ form.description }}
+            {% if form.description.errors %}
+            <div class="error-msg">{{ form.description.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.due_date.id_for_label }}">Due Date</label>
+            <input type="datetime-local" name="due_date" id="{{ form.due_date.id_for_label }}"
+                value="{{ form.due_date.value|date:'Y-m-d\TH:i'|default:'' }}">
+            {% if form.due_date.errors %}
+            <div class="error-msg">{{ form.due_date.errors }}</div>
+            {% endif %}
+        </div>
+
+        {% if object %}
+        <div class="form-group checkbox-group">
+            <label for="{{ form.is_resolved.id_for_label }}" style="margin: 0; cursor: pointer;">
+                {{ form.is_resolved }} Mark as Resolved
+            </label>
+        </div>
+        {% endif %}
+
+        <div class="form-actions">
+            <a href="{% url 'todo-list' %}" class="btn btn-secondary">Cancel</a>
+            <button type="submit" class="btn">Save Task</button>
+        </div>
+    </form>
+</div>
+
+<style>
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .checkbox-group {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .checkbox-group input[type="checkbox"] {
+        width: 1.2rem;
+        height: 1.2rem;
+        accent-color: var(--primary);
+    }
+
+    .form-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--border);
+    }
+
+    .error-msg {
+        color: var(--danger);
+        font-size: 0.85rem;
+        margin-top: 0.25rem;
+    }
+</style>
+{% endblock %}
