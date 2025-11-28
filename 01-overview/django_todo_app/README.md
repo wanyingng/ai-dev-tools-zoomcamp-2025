@@ -39,8 +39,8 @@ A modern, feature-rich TODO application built with Django, featuring a beautiful
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/wanyingng/django-todo-app.git
-   cd django-todo-app
+   git clone https://github.com/wanyingng/ai-dev-tools-zoomcamp-2025.git
+   cd ai-dev-tools-zoomcamp-2025\01-overview\django_todo_app
    ```
 
 2. **Install dependencies**
@@ -81,16 +81,16 @@ A modern, feature-rich TODO application built with Django, featuring a beautiful
 
 ```
 django_todo_app/
-├── todo_project/              # Django project configuration
+├── todo_project/            # Django project configuration
 │   ├── __init__.py
-│   ├── settings.py           # Project settings
-│   ├── urls.py               # Main URL configuration
+│   ├── settings.py          # Project settings
+│   ├── urls.py              # Main URL configuration
 │   ├── asgi.py
 │   └── wsgi.py
 │
-├── todos/                     # Main TODO app
-│   ├── migrations/           # Database migrations
-│   ├── templates/todos/      # HTML templates
+├── todos/                   # Main TODO app
+│   ├── migrations/          # Database migrations
+│   ├── templates/todos/     # HTML templates
 │   │   ├── base.html        # Base template with CSS & theme toggle
 │   │   ├── home.html        # TODO list view
 │   │   ├── todo_form.html   # Create/Edit form
@@ -103,8 +103,8 @@ django_todo_app/
 │   ├── urls.py              # App URL patterns
 │   └── views.py             # CRUD views
 │
-├── manage.py                 # Django management script
-├── db.sqlite3               # SQLite database (gitignored, created after migrations)
+├── manage.py                # Django management script
+├── db.sqlite3               # SQLite database (created after migrations)
 ├── pyproject.toml           # Project dependencies
 ├── uv.lock                  # Dependency lock file
 └── README.md                # This file
@@ -158,10 +158,10 @@ Run with verbose output:
 uv run python manage.py test -v 2
 ```
 
-## Technology Stack
+## Tech Stack
 
 - **Backend**: Django 5.2.8
-- **Database**: SQLite (development)
+- **Database**: SQLite
 - **Frontend**: HTML, CSS, JavaScript
 - **Typography**: Inter (Google Fonts)
 - **Testing**: Django TestCase
@@ -181,14 +181,6 @@ uv run python manage.py test -v 2
 3. Implement the feature
 4. Ensure all tests pass
 5. Submit a pull request
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
 
 ---
 
